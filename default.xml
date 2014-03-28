@@ -12,6 +12,6 @@
 	   "path": directory where git repository gets cloned/synced -->
     <project name="meta-oe" revision="refs/heads/dora"  remote="oe" path="poky/meta-openembedded" />
     <project name="poky" revision="refs/heads/dora" remote="yocto" />
-	<project name="dm368ipnc" remote="mz" path="poky/meta-dm368ipnc" />
+	<project name="dm368ipnc" revision="refs/heads/master" remote="mz" path="poky/meta-dm368ipnc" />
 </manifest>
 
