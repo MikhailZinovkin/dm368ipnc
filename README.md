@@ -5,13 +5,12 @@ supported dm368ipnc products.
 
 ***
 **Note:**
-If you already have a Yocto Project setup and want only the Gumstix BSP layer, 
-use the meta-gumstix repository found here: 
-git://github.com/gumstix/meta-gumstix.git.
+Based on DM36x IPCamera RDK v. 5.1-based on Linux Kernel 2.6.37
+in ftp.appropho.com
 ***
 
 The Yocto Project allows the creation of custom linux distributions for embedded
-systems, including Gumstix-based systems.  It is a collection of git
+systems, including dm368ipnc-based systems.  It is a collection of git
 repositories known as *layers* each of which provides *recipes* to build
 software packages as well as configuration information.
 
@@ -48,9 +47,9 @@ Create an empty directory to hold your working files:
     $ mkdir yocto
     $ cd yocto
 
-Tell Repo where to find the manifest:
+Tell Repo where to find the manifest: 
 
-    $ repo init -u git://github.com/gumstix/Gumstix-YoctoProject-Repo.git 
+    $ repo init -u git://github.com/MikhailZinovkin/dm368ipnc.git
 
 A successful initialization will end with a message stating that Repo is
 initialized in your working directory. Your directory should now
@@ -69,19 +68,19 @@ particular commits.
 
 To test out the bleeding edge, type:
 
-    $ repo init -u git://github.com/gumstix/Gumstix-YoctoProject-Repo.git -b dev
+    $ repo init -u git://github.com/MikhailZinovkin/dm368ipnc.git -b dev
     $ repo sync
 
 To get back to the known stable version, type:
 
-    $ repo init -u git://github.com/gumstix/Gumstix-YoctoProject-Repo.git -b master
+    $ repo init -u git://github.com/MikhailZinovkin/dm368ipnc.git -b master
     $ repo sync
 
 Also you can get a specific version of Yocto Project:
 
 For example,
 
-    $ repo init -u git://github.com/gumstix/Gumstix-YoctoProject-Repo.git -b refs/tags/danny
+    $ repo init -u git://github.com/MikhailZinovkin/dm368ipnc.git -b refs/tags/danny
     
 To learn more about repo, look at http://source.android.com/source/version-control.html 
 ***
@@ -95,7 +94,7 @@ your connection.
 
 **4.  Initialize the Yocto Project Build Environment.**
 
-    $ export TEMPLATECONF=meta-gumstix-extras/conf 
+    $ export TEMPLATECONF=meta-dm368ipnc-extras/conf 
     $ source ./poky/oe-init-build-env
 
 This copies default configuration information into the **poky/build/conf**
@@ -111,11 +110,11 @@ do an awful lot of compilation so make sure you have plenty of space (25GB
 minimum), and expect a day or so of build time depending on your network
 connection.  Don't worry---it is just the first build that takes a while.
 
-    $ bitbake gumstix-console-image
+    $ bitbake dm368ipnc-console-image
 
 If everything goes well, you should have a compressed root filesystem
 tarball as well as kernel and bootloader binaries available in your
-**tmp/deploy/images/{ overo | duovero | pepper }** directory.  If you run into problems, the most likely
+**tmp/deploy/images/{ dm368 | dm388 }** directory.  If you run into problems, the most likely
 candidate is missing software packages.  Check out
 http://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html#resources
 for the list of required packages for operating system. Also, take
@@ -125,10 +124,10 @@ https://wiki.yoctoproject.org/wiki/Distribution_Support
 
 **6. Create a bootable micro SD card:**
 
-You are one step closer to booting your Gumstix with the new image you built! 
+You are one step closer to booting your DM368IPNC-camera with the new image you built! 
 First you have to create two partitions: `boot` and `rootfs`. We have included 
 a small script to help you out with it. Change your directory to 
-**poky/meta-gumstix-extras/scripts** and you should see a shell script named mk2partsd.
+**poky/meta-dm368ipnc-extras/scripts** and you should see a shell script named mk2partsd.
 Pop in your micro SD card to your card writer, and find out the location of 
 the block device by running `dmesg`. Now you can run the script as following:
 
@@ -144,12 +143,12 @@ Once this is successful, go ahead and mount both the drives.
 Almost there. Now you just have to populate the card with the image you built. 
 Go to the deploy directory as mentioned in step 5:
 
-    $ cd build/tmp/deploy/images/{overo|duovero|pepper}   
+    $ cd build/tmp/deploy/images/{dm368 | dm388}   
     
 Write the bootloader, kernel and the root file system into your card:
 
     $ cp MLO u-boot.img uImage /media/boot 
-    $ sudo tar xaf gumstix-console-image.tar.bz2 -C /media/rootfs --strip-components=1
+    $ sudo tar xaf dm368ipnc-console-image.tar.bz2 -C /media/rootfs --strip-components=1
 
 And you should make sure all the files are written:
 
@@ -173,7 +172,7 @@ Enter the Yocto Project build environment:
 
 You can then rebuild as before:
 
-    $ bitbake gumstix-console-image
+    $ bitbake dm368ipnc-console-image
 
 Starting Fresh
 -------------------
@@ -215,7 +214,7 @@ repositories and branches or pull in additional meta-layers.
 
 Clone this repository (or fork it on github):
 
-    $ git clone git://github.com/gumstix/Gumstix-YoctoProject-Repo.git
+    $ git clone git://github.com/MikhailZinovkin/dm368ipnc.git
 
 Make your changes (and contribute them back if they are generally useful), and
 then re-initialize your repo client
