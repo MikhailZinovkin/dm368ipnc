@@ -94,7 +94,7 @@ your connection.
 
 **4.  Initialize the Yocto Project Build Environment.**
 
-    $ export TEMPLATECONF=meta-dm368ipnc-extras/conf 
+    $ export TEMPLATECONF=meta-dm368ipnc/conf 
     $ source ./poky/oe-init-build-env
 
 This copies default configuration information into the **poky/build/conf**
