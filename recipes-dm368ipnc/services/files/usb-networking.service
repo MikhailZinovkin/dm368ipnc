@@ -1,0 +1,9 @@
+[Unit]
+Description=Configure OTG Port for Networking
+
+[Service]
+ExecStart=/usr/share/usb-networking.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

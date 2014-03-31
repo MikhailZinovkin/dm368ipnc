@@ -1,0 +1,27 @@
+From 4132a90bab0a74a85eedf53cf331d88eade3a6d8 Mon Sep 17 00:00:00 2001
+From: Garrett <g@floft.net>
+Date: Wed, 21 Aug 2013 13:19:54 -0700
+Subject: [PATCH] Add modules_install target
+
+---
+ Makefile | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 18a763b..734608f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,7 +7,9 @@ v4l2_driver-objs	:=	init_module.o isp.o omap_hwr_base.o 				\
+ 
+ obj-m			+=v4l2_driver.o
+ 
+-omap:
++all:
+ 	make -C $(KERNEL_PATH) M=$(PWD) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) modules
++modules_install:
++	make -C $(KERNEL_SRC) M=$(PWD) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) modules_install
+ clean:
+ 	make -C $(KERNEL_PATH) M=$(PWD) ARCH=arm CROSS_COMPILE=$(CROSS_COMPILE) clean
+-- 
+1.8.3.4
+

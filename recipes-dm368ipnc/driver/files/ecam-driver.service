@@ -1,0 +1,9 @@
+[Unit]
+Description=Load e-CAM56 37x GSTIX driver
+
+[Service]
+ExecStart=/usr/share/ecam/load.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
