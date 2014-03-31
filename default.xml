@@ -10,8 +10,8 @@
 	   "remote": the remote host from above (if not the default)
 	   "revision": commitish to checkout (if not the default)
 	   "path": directory where git repository gets cloned/synced -->
-    <project name="meta-oe" revision="dora"  remote="oe" path="sources/meta-openembedded" />
-    <project name="poky" revision="dora" remote="yocto" path="sources/poky" />
-	<project name="dm368ipnc" revision="master" remote="mz" path="sources/meta-dm368ipnc" />
+    <project name="meta-oe" revision="refs/heads/dora"  remote="oe" path="poky/meta-openembedded" />
+    <project name="poky" revision="refs/heads/dora" remote="yocto" />
+	<project name="dm368ipnc" revision="refs/heads/master" remote="mz" path="poky/meta-dm368ipnc" />
 </manifest>
 
