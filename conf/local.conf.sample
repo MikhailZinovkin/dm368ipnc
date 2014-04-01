@@ -57,15 +57,14 @@ PARALLEL_MAKE ?= "-j 4"
 #MACHINE ?= "routerstationpro"
 #
 # This sets the default machine to be qemux86 if no other machine is selected:
-MACHINE ?= "overo"
-#MACHINE ?= "pepper"
-#MACHINE ?= "duovero"
+MACHINE ?= "dm368ipnc"
+#MACHINE ?= "dm388ipnc"
 
 #
 # Uncomment the following PREFERRED_VERSION line only if there is some reason
 # you need to run the 3.2 kernel on the Overo instead of the default 3.5.
 # Linux 3.2 is required for the pre-built camera driver from e-consystems.
-PREFERRED_VERSION_linux-gumstix = "3.5.7"
+PREFERRED_VERSION_linux-gumstix = "2.6.37"
 
 #
 # Where to place downloads
@@ -266,3 +265,4 @@ BBMASK ?= ".*/meta-ti/recipes-(misc|bsp/formfactor)/"
 #
 TOOLCHAIN_PATH ?= "${STAGING_DIR_NATIVE}${prefix_native}/bin/${TUNE_PKGARCH}${HOST_VENDOR}-${HOST_OS}"
 TOOLCHAIN_SYSPATH ?= "${TOOLCHAIN_PATH}/${TARGET_SYS}"
+
