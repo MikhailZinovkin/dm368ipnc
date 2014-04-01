@@ -8,6 +8,12 @@ BBFILES ?= ""
 BBLAYERS ?= " \
   ##COREBASE##/meta \
   ##COREBASE##/meta-yocto \
-  ##COREBASE##/meta-openembedded/meta-oe \
   ##COREBASE##/meta-dm368ipnc \
   "
+
+#w BBLAYERS ?= " \
+#w   ##COREBASE##/meta \
+#w   ##COREBASE##/meta-yocto \
+#w   ##COREBASE##/meta-openembedded/meta-oe \
+#w   ##COREBASE##/meta-dm368ipnc \
+#w   "
